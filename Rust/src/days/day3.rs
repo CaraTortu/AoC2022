@@ -8,14 +8,17 @@ pub fn main() {
 }
 
 fn get_char_value(c: char) -> u32 {
-    ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".chars().position(|d| d == c).unwrap() + 1) as u32
+    ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        .chars()
+        .position(|d| d == c)
+        .unwrap()
+        + 1) as u32
 }
 
 fn part_a(input: &Vec<String>) -> u32 {
     let mut total_score: u32 = 0;
-    
-    for line in input {
 
+    for line in input {
         let line: Vec<&str> = line.split("").filter(|c| *c != "").collect();
         let part_size = line.len() / 2;
 
@@ -28,11 +31,11 @@ fn part_a(input: &Vec<String>) -> u32 {
                 break;
             }
         }
-    } 
+    }
 
     return total_score;
 }
- 
+
 fn part_b(input: &Vec<String>) -> u32 {
     let mut groups: Vec<Vec<String>> = read_file::split_by_nth(input, 3);
     groups = groups.into_iter().filter(|d| d.len() != 0).collect();
@@ -48,13 +51,13 @@ fn part_b(input: &Vec<String>) -> u32 {
         }
     }
 
-    return total_score
+    return total_score;
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_part_a() {
         let input: Vec<String> = read_file::get_file("./src/inputs/tests/day3");

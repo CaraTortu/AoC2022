@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use super::lib::read_file;
+use std::collections::HashMap;
 
 pub fn main() {
     let input = read_file::get_file("./src/inputs/solutions/day2");
@@ -10,21 +10,9 @@ pub fn main() {
 
 fn part_a(input: &Vec<String>) -> u32 {
     let game_options = HashMap::from([
-        ("A", HashMap::from([
-            ("X", 4),
-            ("Y", 8),
-            ("Z", 3)
-        ])),
-        ("B", HashMap::from([
-            ("X", 1),
-            ("Y", 5),
-            ("Z", 9)
-        ])),
-        ("C", HashMap::from([
-            ("X", 7),
-            ("Y", 2),
-            ("Z", 6)
-        ]))
+        ("A", HashMap::from([("X", 4), ("Y", 8), ("Z", 3)])),
+        ("B", HashMap::from([("X", 1), ("Y", 5), ("Z", 9)])),
+        ("C", HashMap::from([("X", 7), ("Y", 2), ("Z", 6)])),
     ]);
 
     let mut total_score: u32 = 0;
@@ -34,26 +22,14 @@ fn part_a(input: &Vec<String>) -> u32 {
         total_score += game_options[splitted[0]][splitted[1]];
     }
 
-    return total_score
+    return total_score;
 }
- 
+
 fn part_b(input: &Vec<String>) -> u32 {
     let game_options = HashMap::from([
-        ("A", HashMap::from([
-            ("X", 3),
-            ("Y", 4),
-            ("Z", 8)
-        ])),
-        ("B", HashMap::from([
-            ("X", 1),
-            ("Y", 5),
-            ("Z", 9)
-        ])),
-        ("C", HashMap::from([
-            ("X", 2),
-            ("Y", 6),
-            ("Z", 7)
-        ]))
+        ("A", HashMap::from([("X", 3), ("Y", 4), ("Z", 8)])),
+        ("B", HashMap::from([("X", 1), ("Y", 5), ("Z", 9)])),
+        ("C", HashMap::from([("X", 2), ("Y", 6), ("Z", 7)])),
     ]);
 
     let mut total_score: u32 = 0;
@@ -63,13 +39,13 @@ fn part_b(input: &Vec<String>) -> u32 {
         total_score += game_options[splitted[0]][splitted[1]];
     }
 
-    return total_score
+    return total_score;
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_part_a() {
         let input: Vec<String> = read_file::get_file("./src/inputs/tests/day2");

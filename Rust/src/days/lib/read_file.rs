@@ -9,8 +9,7 @@ pub fn get_file(path: &str) -> Vec<String> {
     let mut contents: Vec<String> = vec![];
 
     // Read line by line
-    for line in reader.lines()
-    {
+    for line in reader.lines() {
         let line = line.unwrap().parse::<String>().unwrap();
         contents.push(line);
     }
@@ -45,7 +44,7 @@ pub fn split_by_nth(lines: &Vec<String>, n: u16) -> Vec<Vec<String>> {
             index = 0;
         }
 
-        let last_index = groups.len()-1;
+        let last_index = groups.len() - 1;
 
         groups[last_index].push(line.parse::<String>().unwrap());
         index += 1
